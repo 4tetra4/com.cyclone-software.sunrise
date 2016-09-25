@@ -1,0 +1,244 @@
+{
+    "id": "com.cyclone-software.sunrise",
+    "name": {
+        "en": "Sunrise",
+        "nl": "Zonstanden"
+    },
+    "description": {
+      "en": "Triggers you at certain positions of the sun.",
+      "nl": "Geeft triggers bij verschillende zon standen."
+    },
+    "category": "tools",
+    "images": {
+      "large": "./assets/images/large.jpg",
+      "small": "./assets/images/small.jpg"
+    },
+    "version": "0.0.1",
+    "compatibility": "0.x || 1.x",
+    "author": {
+        "name": "Marcel Timmermans",
+        "email": "marcel@timmermans.us"
+    },
+    "permissions": [
+         "homey:manager:geolocation"
+    ],
+    "flow": {
+        "triggers": [
+                {
+                    "id": "sr_sunrise",
+                    "title": {
+                        "en": "Sunrise (top edge of the sun appears on the horizon)",
+                        "nl": "Zonsopgang (bovenrand van de zon aan de horizon verschijnt)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },
+                 {
+                    "id": "sr_solarNoon",
+                    "title": {
+                        "en": "solar noon (sun is in the highest position)",
+                        "nl": "Zonne uur (zon is in de hoogste stand)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },
+                 {   "id": "sr_nadir",
+                    "title": {
+                        "en": "nadir (darkest moment of the night, sun is in the lowest position)",
+                        "nl": "Dieptepunt (donkerste moment van de nacht, de zon is in de laagste stand)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },
+                 {   "id": "sr_sunset",
+                    "title": {
+                        "en": "Sunset (sun disappears below the horizon, evening civil twilight starts)",
+                        "nl": "Zonsondergang (zon verdwijnt achter de horizon, begin van de avondschemering)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },                                                   
+                {
+                    "id": "sr_sunsetStart",
+                    "title": {
+                        "en": "Sunset starts (bottom edge of the sun touches the horizon)",
+                        "nl": "Zonsondergang begint (onderrand van de zon raakt de horizon)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },
+                 {
+                    "id": "sr_dawn",
+                    "title": {
+                        "en": "Dawn (morning nautical twilight ends, morning civil twilight starts)",
+                        "nl": "Zonsopgang (begin ochtendschemering)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },
+                 {   "id": "sr_dusk",
+                    "title": {
+                        "en": "Dusk - evening nautical twilight starts",
+                        "nl": "Schemering (avond nautische schemering begint)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },
+                 {   "id": "sr_nauticalDawn",
+                    "title": {
+                        "en": "Nautical dawn (morning nautical twilight starts)",
+                        "nl": "Nautische schemering - ('s ochtends nautische schemering begint)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },                                                   
+                 {   "id": "sr_nauticalDusk",
+                    "title": {
+                        "en": "Nautical dusk (evening astronomical twilight starts)",
+                        "nl": "Nautische schemering (avond astronomische begint)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },                                                   
+                 {   "id": "sr_nightEnd",
+                    "title": {
+                        "en": "night ends - morning astronomical twilight starts",
+                        "nl": "Nacht einde ('s ochtends de astronomische schemering begint)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },                                                   
+                 {   "id": "sr_night",
+                    "title": {
+                        "en": "Night starts (dark enough for astronomical observations)",
+                        "nl": "Nacht begint (donker genoeg voor astronomische waarnemingen)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },                                                   
+                 {   "id": "sr_goldenHourEnd",
+                    "title": {
+                        "en": "Morning golden hour (soft light, best time for photography) ends",
+                        "nl": "Ochtend gouden uur (zacht licht, de beste tijd voor fotografie) eindigt"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },                                                   
+                 {   "id": "sr_goldenHour",
+                    "title": {
+                        "en": "Evening golden hour starts",
+                        "nl": "Avond gouden uur begint"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 },                                                   
+                {
+                    "id": "sr_sunrise_end",
+                    "title": {
+                        "en": "Sunrise ends (bottom edge of the sun touches the horizon)",
+                        "nl": "Einde Zonsopgang (onderrand van de zon raakt de horizon)"
+                    },
+                    "tokens": [
+                                    {
+                                        "name": "sr_time",
+                                        "title": {
+                                            "en": "Time",
+                                            "nl": "Tijd"
+                                        }
+                                    }
+                                ]
+                 }
+            ]
+    }
+}
