@@ -10,6 +10,7 @@ function init() {
 	Homey.log("Sunrise start");
 	setLocation();
 
+	/* switch them on one by one. Need to find out how enums are working in javascript node.js */
 	api.startChecking(0);
 	api.startChecking(1);
 	api.startChecking(2);
@@ -26,6 +27,7 @@ function init() {
 	api.startChecking(13);
 }
 
+/* Get the current location of homey and put this into the Sunset object. Based on this the calculations are made */
 function setLocation(callback) {
 //   Homey.log('Call GeoLocation');
 

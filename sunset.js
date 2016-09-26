@@ -37,10 +37,12 @@ const SunSet = module.exports = function SunSet(config) {
 		this.lon = lon;
 	};
     
+    /* get the current date */
     this.getNow = function() {
         return new Date();
     }
     
+    /* get all the events based on the reference date  and return the one asked for */
     this.getEventTime = function(refDate, id) {
      // Homey.log(refDate);
       this.eventTimes = SunCalc.getTimes(
@@ -51,6 +53,7 @@ const SunSet = module.exports = function SunSet(config) {
         return new Date(this.getEvent(id).getTime());
     };
     
+    /* get a specific event and return the date */
     this.getEvent = function(id) {
        var et = this.eventTimes;
        var i=0;
@@ -68,17 +71,18 @@ const SunSet = module.exports = function SunSet(config) {
         return d;        
     }
     
-    
+    /* get the time until an event */
     this.getTimeTillEvent = function(id) {
         var now = this.getNow();
         var refDate = new Date(now);
         return this.getNextEventDate(now,refDate,id);
     }
     
+    /* get the time until the next event */
     this.getNextEventDate = function(now,refDate,eventId) {
         var timediff = this.getEventTime(refDate,eventId).getTime() - now.getTime();
        // console.log('nextevent time diff:' + timediff);
-        while (timediff < 0) {
+        while (timediff <= 5) {
             refDate.setDate(now.getDate()+1);
             timediff = this.getEventTime(refDate,eventId).getTime() - now.getTime();
         } 
@@ -86,6 +90,7 @@ const SunSet = module.exports = function SunSet(config) {
         return timediff;
     }
 
+   /* put the thing in motion :) */
    this.startChecking = function (id) {      
          var timeTillEvent = this.getTimeTillEvent(id)
        //  Homey.log(timeTillEvent);
@@ -94,6 +99,7 @@ const SunSet = module.exports = function SunSet(config) {
          setTimeout(fn,timeTillEvent);
     };
     
+    /* fire an event to homey when a certain timeout expire */
     this.fireEvent = function(id,timeS) {
         Homey.log('fired ' + id);
         switch(id) {

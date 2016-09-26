@@ -6,7 +6,7 @@ Sunrise is an app the has several triggers to certain positions of the sun. It m
 - sunrise ends (bottom edge of the sun touches the horizon)
 - morning golden hour (soft light, best time for photography) ends
 - solar noon (sun is in the highest position)
-- goldenHour	evening golden hour starts
+- goldenHour (evening golden hour starts)
 - sunset starts (bottom edge of the sun touches the horizon)
 - sunset (sun disappears below the horizon, evening civil twilight starts)
 - dusk (evening nautical twilight starts)
