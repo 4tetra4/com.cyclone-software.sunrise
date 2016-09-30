@@ -13,7 +13,7 @@
       "large": "./assets/images/large.jpg",
       "small": "./assets/images/small.jpg"
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Marcel Timmermans",
@@ -38,7 +38,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },
                  {
                     "id": "sr_solarNoon",
@@ -54,7 +68,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },
                  {   "id": "sr_nadir",
                     "title": {
@@ -69,7 +97,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },
                  {   "id": "sr_sunset",
                     "title": {
@@ -84,7 +126,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },                                                   
                 {
                     "id": "sr_sunsetStart",
@@ -100,7 +156,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },
                  {
                     "id": "sr_dawn",
@@ -116,7 +186,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },
                  {   "id": "sr_dusk",
                     "title": {
@@ -131,7 +215,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },
                  {   "id": "sr_nauticalDawn",
                     "title": {
@@ -146,7 +244,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },                                                   
                  {   "id": "sr_nauticalDusk",
                     "title": {
@@ -161,7 +273,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },                                                   
                  {   "id": "sr_nightEnd",
                     "title": {
@@ -176,7 +302,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },                                                   
                  {   "id": "sr_night",
                     "title": {
@@ -191,7 +331,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },                                                   
                  {   "id": "sr_goldenHourEnd",
                     "title": {
@@ -206,7 +360,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },                                                   
                  {   "id": "sr_goldenHour",
                     "title": {
@@ -221,7 +389,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  },                                                   
                 {
                     "id": "sr_sunrise_end",
@@ -237,7 +419,21 @@
                                             "nl": "Tijd"
                                         }
                                     }
-                                ]
+                                ],
+                    "args": [
+                                    {
+                                        "name": "offset",
+                                        "type": "number",
+                                        "min" : "-60",
+                                        "max" : "60",
+                                        "step": "1",
+                                        "value": "0",
+                                        "placeholder": {
+                                            "en": "Offset in minutes",
+                                            "nl": "Offset in minuten"
+                                         }
+                                    }
+                                ]                    
                  }
             ]
     }

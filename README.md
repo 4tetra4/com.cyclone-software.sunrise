@@ -18,7 +18,19 @@ Sunrise is an app the has several triggers to certain positions of the sun. It m
 - dawn (morning nautical twilight ends, morning civil twilight starts)
 
 ## Change Log:
+### v 0.0.3
+Added trigger options XX minutes before/after sunset/sunrise etc
+Know issue, when you change the offset, the old offset will be affective after the first trigger... Then the new one will be applied.
+-10 is 10 minutes earlier, +10 is 10 minutes later then the sunset trigger (f.e.)
+default = 0 range -60..60
+
+### v 0.0.2
+Fix for possible duplicate triggers.
+
+
 ### v 0.0.1
 First release and first app :)
+
+
 
 
