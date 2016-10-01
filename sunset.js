@@ -48,7 +48,7 @@ const SunSet = module.exports = function SunSet(config) {
     
     /* get all the events based on the reference date  and return the one asked for */
     this.getEventTime = function(refDate, id, offset) {
-      console.log('(getEventTime) refdate:'+refDate+ ' offset:'+offset);
+     // console.log('(getEventTime) refdate:'+refDate+ ' offset:'+offset);
       this.eventTimes = SunCalc.getTimes(
         new Date(refDate.getFullYear(), refDate.getMonth(),refDate.getDate(), 12, 0, 0, 0, 0),
         this.lat,
