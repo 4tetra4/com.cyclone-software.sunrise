@@ -12,31 +12,6 @@ function init() {
 	
 	api.init();
 	
-	       Homey.manager('flow').on('trigger.sr_sunset', function( callback, args,state) {
-           Homey.log(callback);
-           Homey.log(args); 
-           Homey.log(state); 
-           callback( null, true ); // If true, this flow should run. The callback is (err, result)-style.
-        });
-        
-        Homey.manager('flow').on('trigger.sr_sunset.added', function( callback, newArgs ) {
-            console.log('added');
-            console.log( newArgs );
-
-            callback( null, true ); // always fire this callback, it's reserved for future argument validation
-
-        });
-
-        // when a trigger is removed, or a flow is deleted
-        Homey.manager('flow').on('trigger.sr_sunset.removed', function( callback, oldArgs ) {
-            console.log('removed');
-            console.log( oldArgs );
-
-            callback( null, true ); // always fire this callback, it's reserved for future argument validation
-
-        });
-
-
 	/* switch them on one by one. Need to find out how enums are working in javascript node.js */
 	api.startChecking(0);
 	api.startChecking(1);

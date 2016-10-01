@@ -72,39 +72,29 @@ const SunSet = module.exports = function SunSet(config) {
             }
             i++;
         }
-       // d = new Date(new Date().getTime() + 120000); // test
-       // d = new Date(this.getNow().getFullYear(),this.getNow().getMonth(),this.getNow().getDate(), 20, 30, 0, 0, 0);
-       // console.log('new date:' + d);
         return d;        
     }
     
     /* get the time until an event */
     this.getTimeTillEvent = function(id,offset) {
         var now = this.getNow();
-       // var now = new Date(this.getNow().getFullYear(),this.getNow().getMonth(),this.getNow().getDate(), 20, 0, 0, 0, 0);
         var refDate = new Date(now);
         if (offset!=0) {
-            // console.log('oldrefdate:'+refDate);
              refDate = new Date(refDate.getTime()+offset);                      
-            // console.log('new refdate:'+refDate);
         }
         return this.getNextEventDate(now,refDate,id,offset);
     }
     
     /* get the time until the next event */
     this.getNextEventDate = function(now,refDate,eventId,offset) {
-       // console.log('(getNextEvenDate)RefDate:'+refDate);
         var timediff = this.getEventTime(refDate,eventId,offset).getTime() - now.getTime();
-       // console.log('(getNextEvenDate)nextevent time diff:' + timediff);
-        while (timediff <= 1000) {
+        while (timediff <= 10000) {
             if (!isValidDate(refDate)) {
                throw new Error('invalid reference date!');
             };
-         //   console.log('(getNextEvenDate) refdate:'+refDate);
             refDate.setDate(now.getDate()+1);
-        //    console.log('(getNextEvenDate) refdate+1:'+refDate);
             timediff = this.getEventTime(refDate,eventId,offset).getTime() - now.getTime();
-            console.log('(getNextEvenDate) new time diff:'+timediff);
+            //console.log('(getNextEvenDate) new time diff:'+timediff);
         } 
         //console.log('(getNextEvenDate)time diff:' + timediff);
         return timediff;
