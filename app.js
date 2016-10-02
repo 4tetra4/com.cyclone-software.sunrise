@@ -11,22 +11,6 @@ function init() {
 	setLocation();
 	
 	api.init();
-	
-	/* switch them on one by one. Need to find out how enums are working in javascript node.js */
-	api.startChecking(0);
-	api.startChecking(1);
-	api.startChecking(2);
-	api.startChecking(3);
-	api.startChecking(4);
-	api.startChecking(5);
-	api.startChecking(6);
-	api.startChecking(7);
-	api.startChecking(8);
-	api.startChecking(9);
-	api.startChecking(10);
-	api.startChecking(11);
-	api.startChecking(12);
-	api.startChecking(13);
 }
 
 /* Get the current location of homey and put this into the Sunset object. Based on this the calculations are made */
