@@ -49,8 +49,7 @@ const SunSet = module.exports = function SunSet(config) {
                 Homey.log('----Flow: ' + sunsetSchedules[item].name + ' --');
                 callback(null, true); // true to make the flow continue, or false to abort
             });            
-
-            selfie.startChecking(item);
+            selfie.startChecking(parseInt(item));
         });
     };
     
