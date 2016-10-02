@@ -1,5 +1,22 @@
 const SunCalc = require('suncalc');
 
+var sunsetSchedules = {
+            0 : {name:'sr_solarNoon', timer : null, offset:0},
+            1 : {name:'sr_nadir', timer : null, offset:0},
+            2 : {name:'sr_sunrise', timer : null, offset:0},
+            3 : {name:'sr_sunset', timer : null, offset:0},
+            4 : {name:'sr_sunrise_end', timer : null, offset:0},
+            5 : {name:'sr_sunsetStart', timer : null, offset:0},
+            6 : {name:'sr_dawn', timer : null, offset:0},
+            7 : {name:'sr_dusk', timer : null, offset:0},
+            8 : {name:'sr_nauticalDawn', timer : null, offset:0},
+            9 : {name:'sr_nauticalDusk', timer : null, offset:0},
+            10 : {name:'sr_nightEnd', timer : null, offset:0},
+            11 : {name:'sr_night', timer : null, offset:0},
+            12 : {name:'sr_goldenHourEnd', timer : null, offset:0},
+            13 : {name:'sr_goldenHour', timer : null, offset:0}
+};
+
 
 /**
  * The SunSet object
@@ -24,7 +41,17 @@ const SunSet = module.exports = function SunSet(config) {
     var selfie=this;
     
     this.init = function(){
-        Homey.log('Initialize');          
+        Homey.log('Initialize'); 
+        var items = Object.keys(sunsetSchedules);
+        items.forEach(function(item) {
+
+            Homey.manager('flow').on('trigger.'+ sunsetSchedules[item].name, function (callback, args) {
+                Homey.log('----Flow: ' + sunsetSchedules[item].name + ' --');
+                callback(null, true); // true to make the flow continue, or false to abort
+            });            
+
+            selfie.startChecking(item);
+        });
     };
     
     
@@ -116,9 +143,19 @@ const SunSet = module.exports = function SunSet(config) {
         }
         var timeTillEvent = this.getTimeTillEvent(id,offset);
         //Homey.log('(startchecking) timetillevent:'+timeTillEvent);
-        var timeS = this.getEvent(id).toString()
+        var d = this.getEvent(id)
+        var timeS = d.toString()
         var fn = this.fireEvent.bind(this,id,timeS);
-        setTimeout(fn,timeTillEvent);        
+        console.log('Event:'+padding_right(sunsetSchedules[id].name,' ',17) + 
+                    'Date:'+padding_right(getShortDate(d),' ',20) + 
+                    'Offset(sec):' + 
+                    padding_right(''+(offset/1000),' ',6) + 
+                    'time(sec):' + 
+                    padding_right(''+(timeTillEvent/1000),' ',12) + 
+                    'Fire:' + 
+                    getShortDate(new Date(this.getNow().getTime()+timeTillEvent)));
+        sunsetSchedules[id].offset=offset;
+        sunsetSchedules[id].timer=setTimeout(fn,timeTillEvent);        
    }
 
    /* put the thing in motion :) */
@@ -189,38 +226,12 @@ const SunSet = module.exports = function SunSet(config) {
     
     /* fire an event to homey when a certain timeout expire */
     this.fireEvent = function(id,timeS) {
-        console.log('**** fired ' + id + ' at ' + timeS);
-        switch(id) {
-          case 0 :  Homey.manager('flow').trigger('sr_solarNoon', {sr_time: timeS});
-                    break;
-          case 1 :  Homey.manager('flow').trigger('sr_nadir', {sr_time:timeS});
-                    break;
-          case 2 :  Homey.manager('flow').trigger('sr_sunrise', {sr_time: timeS});
-                    break;
-          case 3 :  Homey.manager('flow').trigger('sr_sunset', {sr_time: timeS});
-                    break;
-          case 4 :  Homey.manager('flow').trigger('sr_sunrise_end', {sr_time: timeS});
-                    break;
-          case 5 :  Homey.manager('flow').trigger('sr_sunsetStart', {sr_time: timeS});
-                    break;
-          case 6 :  Homey.manager('flow').trigger('sr_dawn', {sr_time: timeS});
-                    break;
-          case 7 :  Homey.manager('flow').trigger('sr_dusk', {sr_time: timeS});
-                    break;
-          case 8 :  Homey.manager('flow').trigger('sr_nauticalDawn', {sr_time: timeS});
-                    break;
-          case 9 :  Homey.manager('flow').trigger('sr_nauticalDusk', {sr_time: timeS});
-                    break;
-          case 10 :  Homey.manager('flow').trigger('sr_nightEnd', {sr_time: timeS});
-                    break;
-          case 11 :  Homey.manager('flow').trigger('sr_night', {sr_time: timeS});
-                    break;
-          case 12 :  Homey.manager('flow').trigger('sr_goldenHourEnd', {sr_time: timeS});
-                    break;
-          case 13 :  Homey.manager('flow').trigger('sr_goldenHour', {sr_time: timeS});    
-                    break;
-       }
-       this.startChecking(id);
+       // Homey.manager('flow').trigger('sr_solarNoon', {sr_time: timeS});
+
+        Homey.manager('flow').trigger(sunsetSchedules[id].name,  {sr_time: timeS});
+        console.log('**** fired ' + sunsetSchedules[id].name + ' (' + timeS + ') Time:'+this.getNow());
+        var fn = this.startChecking.bind(this,id);
+        setTimeout(fn, 2000);
     }
 }).call(SunSet.prototype);
 
@@ -235,4 +246,26 @@ function isValidDate(d) {
         else {
             return true;
         }
+}
+
+function getShortDate(d) {
+    year = "" + d.getFullYear();
+    month = "" + (d.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+    day = "" + d.getDate(); if (day.length == 1) { day = "0" + day; }
+    hour = "" + d.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+    minute = "" + d.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+    second = "" + d.getSeconds(); if (second.length == 1) { second = "0" + second; }
+    return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+}
+
+// right padding s with c to a total of n chars
+function padding_right(s, c, n) {
+  if (! s || ! c || s.length >= n) {
+    return s;
+  }
+  var max = (n - s.length)/c.length;
+  for (var i = 0; i < max; i++) {
+    s += c;
+  }
+  return s;
 }
